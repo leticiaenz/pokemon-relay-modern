@@ -1,57 +1,42 @@
-import React, { Component } from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { QueryRenderer } from 'react-relay';
+import React, { Component } from "react";
+import graphql from "babel-plugin-relay/macro";
+import { QueryRenderer } from "react-relay";
 
-import { Environment } from './relay';
+import { Environment } from "./relay";
 
 const App = ({ query }) => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>me: ${query.me && query.me.name}</span>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Relay
-        </a>
-      </header>
-    </div>
-  );
+  console.log(query);
+  return <h1>Pokemon</h1>;
 };
 
 const AppQR = () => {
   return (
-     <QueryRenderer
-        environment={Environment}
-        query={graphql`
-          query AppQuery {
-            me {
-              id
-              name
-            }
+    <QueryRenderer
+      environment={Environment}
+      query={graphql`
+        query AppQuery {
+          pokemons(first: 20) {
+            id
+            name
+            image
           }
-        `}
-        variables={{}}
-        render={({ error, props }) => {
-          console.log('qr: ', error, props);
-            if (error) {
-              return <span>{error.toString()}</span>;
-            }
+        }
+      `}
+      variables={{}}
+      render={({ error, props }) => {
+        console.log("qr: ", error, props);
+        if (error) {
+          return <span>{error.toString()}</span>;
+        }
 
-            if (props) {
-              return <App query={props} />;
-            }
+        if (props) {
+          return <App query={props} />;
+        }
 
-            return <span>loading</span>;
-          }}
-        />
-  )
+        return <span>loading</span>;
+      }}
+    />
+  );
 };
 
 export default AppQR;
