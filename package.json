@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "relay": "relay-compiler --src ./src --schema ./data/schema.graphql",
-    "start": "react-scripts start",
+    "start": "yarn relay && react-scripts start",
     "test": "react-scripts test",
     "test:cov": "react-scripts test src --coverage"
   }
