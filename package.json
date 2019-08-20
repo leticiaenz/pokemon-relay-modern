@@ -11,7 +11,8 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-relay": "^2.0.0",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "babel-plugin-relay": "^2.0.0",
