@@ -20,7 +20,7 @@ const PokemonDetails = ({ pokemon }) => {
         {pokemon.number} - {pokemon.name}
       </h1>
 
-      <h3>Tipos:</h3>
+      <h3>Tipos</h3>
       <ul>
         {pokemon.types.map((type, index) => (
           <li key={index}>{type}</li>
