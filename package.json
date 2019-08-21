@@ -32,6 +32,6 @@
     "start": "yarn relay && react-scripts start",
     "test": "react-scripts test",
     "test:cov": "react-scripts test src --coverage",
-    "heroku-prebuild": "scripts/install-watchman.sh"
+    "heroku-prebuild": "bash scripts/install-watchman.sh"
   }
 }
