@@ -31,6 +31,7 @@
     "relay": "relay-compiler --src ./src --schema ./data/schema.graphql",
     "start": "yarn relay && react-scripts start",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test src --coverage"
+    "test:cov": "react-scripts test src --coverage",
+    "heroku-prebuild": "scripts/install-watchman.sh"
   }
 }
