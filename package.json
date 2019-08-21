@@ -26,12 +26,11 @@
   },
   "private": true,
   "scripts": {
-    "build": "yarn relay && react-scripts build",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "relay": "relay-compiler --src ./src --schema ./data/schema.graphql",
-    "start": "yarn relay && react-scripts start",
+    "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test src --coverage",
-    "heroku-prebuild": "bash scripts/install-watchman.sh"
+    "test:cov": "react-scripts test src --coverage"
   }
 }
