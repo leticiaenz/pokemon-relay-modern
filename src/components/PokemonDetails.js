@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import graphql from "babel-plugin-relay/macro";
+import { Link } from "react-router-dom";
 import { createFragmentContainer } from "react-relay";
 
 const Container = styled.div`
@@ -33,6 +34,10 @@ const PokemonDetails = ({ pokemon }) => {
           <li key={index}>{item}</li>
         ))}
       </ul>
+
+      <Link to={`/`}>
+        <button>Voltar</button>
+      </Link>
     </Container>
   );
 };
