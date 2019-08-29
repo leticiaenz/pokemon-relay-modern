@@ -9,7 +9,7 @@ const Container = styled.div`
   align-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #5688c7;
   height: 100%;
 `;
 const ContainerInside = styled.div`
@@ -33,12 +33,19 @@ const TitleDetails = styled.h3`
   width: 100%;
 `;
 
+const List = styled.ul`
+  text-align: left;
+  list-style-type: circle;
+  width: 80%;
+`;
+
 const ButtonBack = styled.button`
   background: #052f5f;
   color: #fff;
-  margin-top: 10px;
-  font-size: 16px;
+  margin: 30px;
+  font-size: 20px;
   padding: 12px 28px;
+  border: none;
 `;
 
 const PokemonDetails = ({ pokemon }) => {
@@ -51,18 +58,18 @@ const PokemonDetails = ({ pokemon }) => {
         </h1>
 
         <TitleDetails>Tipos</TitleDetails>
-        <ul>
+        <List>
           {pokemon.types.map((type, index) => (
             <li key={index}>{type}</li>
           ))}
-        </ul>
+        </List>
 
         <TitleDetails>Resistência</TitleDetails>
-        <ul>
+        <List>
           {pokemon.resistant.map((item, index) => (
             <li key={index}>{item}</li>
           ))}
-        </ul>
+        </List>
       </ContainerInside>
       <Link to={`/`}>
         <ButtonBack>Voltar</ButtonBack>
