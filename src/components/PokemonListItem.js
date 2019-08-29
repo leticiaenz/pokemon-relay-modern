@@ -39,9 +39,9 @@ const PokemonItem = props => {
           alt={props.pokemon.name}
           height="200px"
         />
-        <h1>
+        <h2>
           {props.pokemon.number} - {props.pokemon.name}
-        </h1>
+        </h2>
       </PokemonCard>
     </StyledLink>
   );

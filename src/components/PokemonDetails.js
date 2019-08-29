@@ -31,12 +31,14 @@ const TitleDetails = styled.h3`
   background: #ecebe4;
   text-align: center;
   width: 100%;
+  margin-top: 10px;
 `;
 
 const List = styled.ul`
   text-align: left;
   list-style-type: circle;
   width: 80%;
+  margin-top: 10px;
 `;
 
 const ButtonBack = styled.button`
