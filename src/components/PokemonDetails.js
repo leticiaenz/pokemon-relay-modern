@@ -10,33 +10,62 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #fff;
+  height: 100%;
+`;
+const ContainerInside = styled.div`
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  color: #495057;
+  border: 2px;
+  margin-top: 30px;
+  border-radius: 3px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 20px;
+  height: 100%;
+`;
+
+const TitleDetails = styled.h3`
+  background: #ecebe4;
+  text-align: center;
+  width: 100%;
+`;
+
+const ButtonBack = styled.button`
+  background: #052f5f;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 16px;
+  padding: 12px 28px;
 `;
 
 const PokemonDetails = ({ pokemon }) => {
   return (
     <Container>
-      <img src={pokemon.image} alt={pokemon.name} height="80%" />
-      <h1>
-        {pokemon.number} - {pokemon.name}
-      </h1>
+      <ContainerInside>
+        <img src={pokemon.image} alt={pokemon.name} height="300px" />
+        <h1>
+          {pokemon.number} - {pokemon.name}
+        </h1>
 
-      <h3>Tipos</h3>
-      <ul>
-        {pokemon.types.map((type, index) => (
-          <li key={index}>{type}</li>
-        ))}
-      </ul>
+        <TitleDetails>Tipos</TitleDetails>
+        <ul>
+          {pokemon.types.map((type, index) => (
+            <li key={index}>{type}</li>
+          ))}
+        </ul>
 
-      <h3>Resistência</h3>
-      <ul>
-        {pokemon.resistant.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-
+        <TitleDetails>Resistência</TitleDetails>
+        <ul>
+          {pokemon.resistant.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </ContainerInside>
       <Link to={`/`}>
-        <button>Voltar</button>
+        <ButtonBack>Voltar</ButtonBack>
       </Link>
     </Container>
   );
