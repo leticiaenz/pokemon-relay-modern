@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import graphql from "babel-plugin-relay/macro";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { createFragmentContainer } from "react-relay";
+import { mutationDeletePokemonCommit } from "../mutations/pokemonMutations";
 
 const Container = styled.div`
   display: flex;
@@ -50,7 +51,19 @@ const ButtonBack = styled.button`
   border: none;
 `;
 
-const PokemonDetails = ({ pokemon }) => {
+const PokemonDetails = ({ pokemon, history }) => {
+  const pokemonMutationSuccess = () => {
+    history.push("/");
+  };
+
+  const removePokemon = e => {
+    e.preventDefault();
+    const variables = {
+      id: pokemon.id
+    };
+    mutationDeletePokemonCommit(variables, pokemonMutationSuccess);
+  };
+
   return (
     <Container>
       <ContainerInside>
@@ -72,7 +85,9 @@ const PokemonDetails = ({ pokemon }) => {
               <li key={index}>{item}</li>
             ))}
         </List>
+        <ButtonBack onClick={removePokemon}>Remover</ButtonBack>
       </ContainerInside>
+
       <Link to={`/`}>
         <ButtonBack>Voltar</ButtonBack>
       </Link>
@@ -80,15 +95,17 @@ const PokemonDetails = ({ pokemon }) => {
   );
 };
 
-export default createFragmentContainer(PokemonDetails, {
-  pokemon: graphql`
-    fragment PokemonDetails_pokemon on Pokemon {
-      id
-      name
-      number
-      resistances
-      types
-      image
-    }
-  `
-});
+export default withRouter(
+  createFragmentContainer(PokemonDetails, {
+    pokemon: graphql`
+      fragment PokemonDetails_pokemon on Pokemon {
+        id
+        name
+        number
+        resistances
+        types
+        image
+      }
+    `
+  })
+);
