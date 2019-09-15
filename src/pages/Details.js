@@ -29,7 +29,7 @@ const Details = props => (
 );
 
 const DetailsQuery = graphql`
-  query DetailsQuery($pokemonID: String!) {
+  query DetailsQuery($pokemonID: String) {
     pokemon(id: $pokemonID) {
       ...PokemonDetails_pokemon
     }

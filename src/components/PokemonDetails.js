@@ -61,16 +61,16 @@ const PokemonDetails = ({ pokemon }) => {
 
         <TitleDetails>Tipos</TitleDetails>
         <List>
-          {pokemon.types.map((type, index) => (
-            <li key={index}>{type}</li>
-          ))}
+          {pokemon.types &&
+            pokemon.types.map((type, index) => <li key={index}>{type}</li>)}
         </List>
 
         <TitleDetails>Resistência</TitleDetails>
         <List>
-          {pokemon.resistant.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          {pokemon.resistances &&
+            pokemon.resistances.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
         </List>
       </ContainerInside>
       <Link to={`/`}>
@@ -86,7 +86,7 @@ export default createFragmentContainer(PokemonDetails, {
       id
       name
       number
-      resistant
+      resistances
       types
       image
     }
